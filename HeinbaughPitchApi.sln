@@ -19,6 +19,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeinbaughPitchApi.WindowsPh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeinbaughPitchApiService", "HeinbaughPitchApiService\HeinbaughPitchApiService.csproj", "{209FA716-A7AD-4095-BD70-C8710FC66FA7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{8B5F90AB-5319-4312-817F-C00DF9873C38}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		HeinbaughPitchApi\HeinbaughPitchApi.Shared\HeinbaughPitchApi.Shared.projitems*{bd50eca0-7f46-41e1-a407-56821f327b5b}*SharedItemsImports = 4
