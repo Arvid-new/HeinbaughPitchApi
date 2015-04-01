@@ -16,15 +16,15 @@ namespace HeinbaughPitchApiService.DataObjects
 
         //Relationships
         public virtual DtoGameType GameType { get; set; }
-        //public virtual Team HomeTeam { get; set; }
+        public virtual DtoTeam HomeTeam { get; set; }
         //public virtual Lineup HomeTeamLineup { get; set; }
-        //public virtual Team AwayTeam { get; set; }
+        public virtual DtoTeam AwayTeam { get; set; }
 
         //public virtual Lineup AwayTeamLineup { get; set; }
-        //public virtual Umpire HomePlateUmpire { get; set; }
-        //public virtual Umpire FirstBaseUmpire { get; set; }
-        //public virtual Umpire SecondBaseUmpire { get; set; }
-        //public virtual Umpire ThirdBaseUmpire { get; set; }
+        public virtual DtoUmpire HomePlateUmpire { get; set; }
+        public virtual DtoUmpire FirstBaseUmpire { get; set; }
+        public virtual DtoUmpire SecondBaseUmpire { get; set; }
+        public virtual DtoUmpire ThirdBaseUmpire { get; set; }
         //public virtual ICollection<Inning> Innings { get; set; } 
     }
 }

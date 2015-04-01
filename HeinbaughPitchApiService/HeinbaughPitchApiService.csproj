@@ -236,6 +236,7 @@
     <Compile Include="DataObjects\DtoHitResult.cs" />
     <Compile Include="DataObjects\DtoLeague.cs" />
     <Compile Include="DataObjects\DtoLineup.cs" />
+    <Compile Include="DataObjects\DtoLineupBatter.cs" />
     <Compile Include="DataObjects\DtoPickoff.cs" />
     <Compile Include="DataObjects\DtoPitcher.cs" />
     <Compile Include="DataObjects\DtoPitcherSeason.cs" />

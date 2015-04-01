@@ -8,7 +8,8 @@ namespace HeinbaughPitchApiService.DataObjects
     public class DtoLineup : EntityData
     {
         public DtoTeam Team { get; set; }
-       // public virtual ICollection<LineupBatter> Batters { get; set; }
-        public string StartingPitcherId { get; set; } 
+        public string StartingPitcherId { get; set; }
+        public virtual ICollection<DtoLineupBatter> Batters { get; set; }
+        public virtual Pitcher StartingPitcher { get; set; }
     }
 }
