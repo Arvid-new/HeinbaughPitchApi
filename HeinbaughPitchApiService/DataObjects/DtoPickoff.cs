@@ -9,7 +9,6 @@ namespace HeinbaughPitchApiService.DataObjects
         public string Description { get; set; }
 
         //Relationships
-       // public Pitcher Pitcher { get; set; }
         public string PitcherId { get; set; }
     }
 }

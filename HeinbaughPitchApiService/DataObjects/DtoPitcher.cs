@@ -37,7 +37,7 @@ namespace HeinbaughPitchApiService.DataObjects
         public int? CareerLosses { get; set; }
         public int? CareerSaves { get; set; }
         public ICollection<DtoPitchType> PitchTypes { get; set; }
-//        public ICollection<Lineup> GamesStarted { get; set; }
+        public ICollection<DtoLineup> GamesStarted { get; set; }
 
         public ICollection<DtoPitcherSeason> SeasonStats { get; set; }
         public virtual ICollection<DtoPickoff> Pickoffs { get; set; }
