@@ -229,6 +229,8 @@
     <Compile Include="Controllers\TodoItemController.cs" />
     <Compile Include="DataObjects\DtoAction.cs" />
     <Compile Include="DataObjects\DtoBatter.cs" />
+    <Compile Include="DataObjects\DtoBatterSeason.cs" />
+    <Compile Include="DataObjects\DtoHit.cs" />
     <Compile Include="DataObjects\DtoPitcher.cs" />
     <Compile Include="DataObjects\DtoPitcherSeason.cs" />
     <Compile Include="DataObjects\DtoPitchType.cs" />

@@ -35,8 +35,8 @@ namespace HeinbaughPitchApiService.DataObjects
 
         //Relationships
 
-        //public virtual ICollection<BatterSeason> BatterSeasons { get; set; }
-        //public virtual ICollection<Hit> Hits { get; set; }
+        public virtual ICollection<DtoBatterSeason> BatterSeasons { get; set; }
+        public virtual ICollection<DtoHit> Hits { get; set; }
         public virtual ICollection<DtoAction> Actions { get; set; }
         public virtual ICollection<DtoPosition> PositionsPlayed { get; set; } 
     }

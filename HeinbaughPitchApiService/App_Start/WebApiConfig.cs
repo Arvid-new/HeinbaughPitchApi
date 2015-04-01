@@ -38,6 +38,8 @@ namespace HeinbaughPitchApiService
                 m.CreateMap<DtoPitcherSeason, PitcherSeason>();
                 m.CreateMap<DtoPosition, Position>();
                 m.CreateMap<DtoAction, Action>();
+                m.CreateMap<DtoHit, Hit>();
+                m.CreateMap<DtoBatterSeason, BatterSeason>();
                 
                 //outgoing
                 m.CreateMap<Pitcher, DtoPitcher>()
@@ -47,7 +49,9 @@ namespace HeinbaughPitchApiService
                 m.CreateMap<Batter, DtoBatter>()
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()))
                     .ForMember(d => d.PositionsPlayed, map => map.MapFrom(x => x.PositionsPlayed))
-                    .ForMember(d => d.Actions, map => map.MapFrom(x => x.Actions));
+                    .ForMember(d => d.Actions, map => map.MapFrom(x => x.Actions))
+                    .ForMember(d => d.Hits, map => map.MapFrom(x => x.Hits))
+                    .ForMember(d => d.BatterSeasons, map => map.MapFrom(x => x.BatterSeasons));
                 m.CreateMap<PitchType, DtoPitchType>()
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()))
                     .ForMember(d => d.PitchName, map => map.MapFrom(x => x.Name));
@@ -56,6 +60,10 @@ namespace HeinbaughPitchApiService
                 m.CreateMap<Position, DtoPosition>()
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
                 m.CreateMap<Action, DtoAction>()
+                    .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
+                m.CreateMap<Hit, DtoHit>()
+                    .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
+                m.CreateMap<BatterSeason, DtoBatterSeason>()
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
             });
             Database.SetInitializer(new HeinbaughPitchApiInitializer());
