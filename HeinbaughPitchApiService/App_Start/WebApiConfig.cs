@@ -42,6 +42,7 @@ namespace HeinbaughPitchApiService
                 m.CreateMap<DtoBatterSeason, BatterSeason>();
                 m.CreateMap<DtoHitResult, HitResult>();
                 m.CreateMap<DtoSeason, Season>();
+                m.CreateMap<DtoPickoff, Pickoff>();
                 
                 //outgoing
                 m.CreateMap<Pitcher, DtoPitcher>()
@@ -74,28 +75,33 @@ namespace HeinbaughPitchApiService
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
                 m.CreateMap<Season, DtoSeason>()
                    .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
+                m.CreateMap<Pickoff, DtoPickoff>()
+                   .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()))
+                   .ForMember(d => d.PitcherId, map => map.MapFrom(x => x.PitcherId.ToString()));
+
+
             });
-            Database.SetInitializer(new HeinbaughPitchApiInitializer());
+            //Database.SetInitializer(new HeinbaughPitchApiInitializer());
         }
     }
 
-    public class HeinbaughPitchApiInitializer : ClearDatabaseSchemaIfModelChanges<HeinbaughPitchApiContext>
-    {
-        protected override void Seed(HeinbaughPitchApiContext context)
-        {
-            //List<TodoItem> todoItems = new List<TodoItem>
-            //{
-            //    new TodoItem { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
-            //    new TodoItem { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false },
-            //};
+    //public class HeinbaughPitchApiInitializer : ClearDatabaseSchemaIfModelChanges<HeinbaughPitchApiContext>
+    //{
+    //    protected override void Seed(HeinbaughPitchApiContext context)
+    //    {
+    //        //List<TodoItem> todoItems = new List<TodoItem>
+    //        //{
+    //        //    new TodoItem { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
+    //        //    new TodoItem { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false },
+    //        //};
 
-            //foreach (TodoItem todoItem in todoItems)
-            //{
-            //    context.Set<TodoItem>().Add(todoItem);
-            //}
+    //        //foreach (TodoItem todoItem in todoItems)
+    //        //{
+    //        //    context.Set<TodoItem>().Add(todoItem);
+    //        //}
 
-            //base.Seed(context);
-        }
-    }
+    //        //base.Seed(context);
+    //    }
+    //}
 }
 
