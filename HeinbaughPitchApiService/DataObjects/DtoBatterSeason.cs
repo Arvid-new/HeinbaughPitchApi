@@ -17,8 +17,7 @@ namespace HeinbaughPitchApiService.DataObjects
         public int? Strikeouts { get; set; }
 
         //Relationships
-       // public virtual Batter Batter { get; set; }
-       // public virtual Season Season { get; set; }
+        public virtual DtoSeason Season { get; set; }
         public int? HitIntoDoublePlay { get; set; }
  
     }

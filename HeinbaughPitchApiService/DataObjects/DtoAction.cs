@@ -15,8 +15,7 @@ namespace HeinbaughPitchApiService.DataObjects
         public string Event { get; set; }
 
         //Relationships
-        //public virtual Batter Batter { get; set; }
-        //public Guid BatterId { get; set; }
+        public string BatterId { get; set; }
         //public Inning Inning { get; set; }
         //public AtBat AtBat { get; set; } 
     }

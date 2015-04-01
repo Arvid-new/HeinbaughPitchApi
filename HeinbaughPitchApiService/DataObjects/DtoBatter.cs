@@ -10,6 +10,9 @@ namespace HeinbaughPitchApiService.DataObjects
         public DtoBatter()
         {
             PositionsPlayed = new List<DtoPosition>();
+            Hits = new List<DtoHit>();
+            Actions = new List<DtoAction>();
+            BatterSeasons = new List<DtoBatterSeason>();
         }
         public string FirstName { get; set; }
         public string LastName { get; set; }

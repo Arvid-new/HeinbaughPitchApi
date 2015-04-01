@@ -40,6 +40,8 @@ namespace HeinbaughPitchApiService
                 m.CreateMap<DtoAction, Action>();
                 m.CreateMap<DtoHit, Hit>();
                 m.CreateMap<DtoBatterSeason, BatterSeason>();
+                m.CreateMap<DtoHitResult, HitResult>();
+                m.CreateMap<DtoSeason, Season>();
                 
                 //outgoing
                 m.CreateMap<Pitcher, DtoPitcher>()
@@ -60,11 +62,18 @@ namespace HeinbaughPitchApiService
                 m.CreateMap<Position, DtoPosition>()
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
                 m.CreateMap<Action, DtoAction>()
-                    .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
+                    .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()))
+                    .ForMember(d => d.BatterId, map => map.MapFrom(x => x.BatterId.ToString()));
                 m.CreateMap<Hit, DtoHit>()
-                    .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
+                    .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()))
+                    .ForMember(d => d.BatterId, map => map.MapFrom(x => x.BatterId.HasValue ? x.BatterId.ToString() : string.Empty)) // Use this line for nullable GUIDs
+                    .ForMember(d => d.PitcherId, map => map.MapFrom(x => x.PitcherId.HasValue ? x.PitcherId.ToString() : string.Empty));
                 m.CreateMap<BatterSeason, DtoBatterSeason>()
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
+                m.CreateMap<HitResult, DtoHitResult>()
+                    .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
+                m.CreateMap<Season, DtoSeason>()
+                   .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
             });
             Database.SetInitializer(new HeinbaughPitchApiInitializer());
         }

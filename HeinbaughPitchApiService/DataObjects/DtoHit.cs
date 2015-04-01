@@ -11,13 +11,8 @@ namespace HeinbaughPitchApiService.DataObjects
         public HitType HitType { get; set; }
 
         //Relationships
-        //public virtual HitResult Result { get; set; }
-        //public virtual Batter Batter { get; set; }
-        //public Guid? BatterId { get; set; }
-
-        //public virtual BatterSeason BatterSeason { get; set; }
-        //public virtual PitcherSeason PitcherSeason { get; set; }
-        //public virtual Pitcher Pitcher { get; set; }
-        //public Guid? PitcherId { get; set; }
+        public virtual DtoHitResult Result { get; set; }
+        public string BatterId { get; set; }
+        public string PitcherId { get; set; }
     }
 }

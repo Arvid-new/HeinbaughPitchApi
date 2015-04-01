@@ -231,10 +231,12 @@
     <Compile Include="DataObjects\DtoBatter.cs" />
     <Compile Include="DataObjects\DtoBatterSeason.cs" />
     <Compile Include="DataObjects\DtoHit.cs" />
+    <Compile Include="DataObjects\DtoHitResult.cs" />
     <Compile Include="DataObjects\DtoPitcher.cs" />
     <Compile Include="DataObjects\DtoPitcherSeason.cs" />
     <Compile Include="DataObjects\DtoPitchType.cs" />
     <Compile Include="DataObjects\DtoPosition.cs" />
+    <Compile Include="DataObjects\DtoSeason.cs" />
     <Compile Include="DataObjects\TodoItem.cs" />
     <Compile Include="Models\BatterDomainModel.cs" />
     <Compile Include="Models\GamedayContext.cs" />
