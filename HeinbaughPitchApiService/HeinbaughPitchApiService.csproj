@@ -225,6 +225,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BatterController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\PitcherController.cs" />
     <Compile Include="DataObjects\Players\DtoBatter.cs" />
     <Compile Include="DataObjects\Players\DtoBatterSeason.cs" />
@@ -254,6 +255,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\GameDomainModel.cs" />
     <Compile Include="Models\PitcherDomainModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

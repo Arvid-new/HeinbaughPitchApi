@@ -49,7 +49,7 @@ namespace HeinbaughPitchApiService
                 m.CreateMap<DtoLeague, League>();
                 m.CreateMap<DtoUmpire, Umpire>();
                 m.CreateMap<DtoGame, Game>();
-                m.CreateMap<DtoLineupBatter, LineupBatter>();
+               // m.CreateMap<DtoLineupBatter, LineupBatter>();
                 m.CreateMap<DtoInning, Inning>();
                 m.CreateMap<DtoAtBat, AtBat>();
                 m.CreateMap<DtoRunner, Runner>();
@@ -76,7 +76,7 @@ namespace HeinbaughPitchApiService
                 m.CreateMap<Action, DtoAction>()
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()))
                     .ForMember(d => d.BatterId, map => map.MapFrom(x => x.BatterId.ToString()))
-                    .ForMember(d => d.AtBatId, map => map.MapFrom(x => x.AtBat.ToString()))
+                    .ForMember(d => d.AtBatId, map => map.MapFrom(x => x.AtBat.Id.ToString()))
                     .ForMember(d => d.InningId, map => map.MapFrom(x => x.Inning.Id.ToString()));
                 m.CreateMap<Hit, DtoHit>()
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()))
@@ -93,6 +93,8 @@ namespace HeinbaughPitchApiService
                    .ForMember(d => d.PitcherId, map => map.MapFrom(x => x.PitcherId.ToString()));
                 m.CreateMap<Lineup, DtoLineup>()
                     .ForMember(d => d.StartingPitcherId, map => map.MapFrom(x => x.StartingPitcherId.HasValue ? x.StartingPitcherId.ToString() : string.Empty))
+                    .ForMember(d => d.TeamId, map => map.MapFrom(x => x.Team.Id.ToString()))
+                   // .ForMember(d => d.Batters, map => map.MapFrom(x => x.Batters))
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
                 m.CreateMap<Team, DtoTeam>()
                     .ForMember(d => d.DivisionId, map => map.MapFrom(x => x.DivisionId.ToString()))
@@ -111,7 +113,9 @@ namespace HeinbaughPitchApiService
                 m.CreateMap<GameType, DtoGameType>()
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
                 m.CreateMap<LineupBatter, DtoLineupBatter>()
-                    .ForMember(d => d.PlayerStatusCodeId, map => map.MapFrom(x => x.PlayerStatusCodeId.HasValue ? x.PlayerStatusCodeId.ToString() : string.Empty))
+                    .ForMember(d => d.LineupId, map => map.MapFrom(x => x.Lineup.Id.ToString()))
+                   // .ForMember(d => d.BatterId, map => map.MapFrom(x => x.Batter.Id.ToString()))
+                    //.ForMember(d => d.PlayerStatusCodeId, map => map.MapFrom(x => x.PlayerStatusCodeId.HasValue ? x.PlayerStatusCodeId.ToString() : string.Empty))
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
                 m.CreateMap<Inning, DtoInning>()
                     .ForMember(d => d.GameId, map => map.MapFrom(x => x.GameId.HasValue ? x.GameId.ToString() : string.Empty))

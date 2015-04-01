@@ -10,6 +10,7 @@ using Gameday.Data;
 using HeinbaughPitchApiService.DataObjects;
 using HeinbaughPitchApiService.Models;
 using Microsoft.Azure.Mobile.Server;
+using GamedayContext = HeinbaughPitchApiService.Models.GamedayContext;
 
 namespace HeinbaughPitchApiService.Controllers
 {

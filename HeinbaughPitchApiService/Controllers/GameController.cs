@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.OData;
+using Gameday.Data;
 using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.AppService;
 using HeinbaughPitchApiService.DataObjects;
@@ -11,42 +12,42 @@ using GamedayContext = HeinbaughPitchApiService.Models.GamedayContext;
 
 namespace HeinbaughPitchApiService.Controllers
 {
-    public class BatterController : TableController<DtoBatter>
+    public class GameController : TableController<DtoGame>
     {
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
             var context = new GamedayContext();
-            DomainManager = new BatterDomainModel(context, Request, Services);
+            DomainManager = new GameDomainModel(context, Request, Services);
         }
 
-        // GET tables/Batter
-        public IQueryable<DtoBatter> GetAllDtoBatter()
+        // GET tables/Game
+        public IQueryable<DtoGame> GetAllDtoGame()
         {
             return Query(); 
         }
 
-        // GET tables/Batter/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public SingleResult<DtoBatter> GetDtoBatter(string id)
+        // GET tables/Game/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public SingleResult<DtoGame> GetDtoGame(string id)
         {
             return Lookup(id);
         }
 
-        // PATCH tables/Batter/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public Task<DtoBatter> PatchDtoBatter(string id, Delta<DtoBatter> patch)
+        // PATCH tables/Game/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public Task<DtoGame> PatchDtoGame(string id, Delta<DtoGame> patch)
         {
              return UpdateAsync(id, patch);
         }
 
-        // POST tables/Batter
-        public async Task<IHttpActionResult> PostDtoBatter(DtoBatter item)
+        // POST tables/Game
+        public async Task<IHttpActionResult> PostDtoGame(DtoGame item)
         {
-            DtoBatter current = await InsertAsync(item);
+            DtoGame current = await InsertAsync(item);
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 
-        // DELETE tables/Batter/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public Task DeleteDtoBatter(string id)
+        // DELETE tables/Game/48D68C86-6EA6-4C25-AA33-223FC9A27959
+        public Task DeleteDtoGame(string id)
         {
              return DeleteAsync(id);
         }

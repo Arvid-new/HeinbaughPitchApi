@@ -6,12 +6,12 @@ namespace HeinbaughPitchApiService.DataObjects
 {
     public class DtoLineupBatter : EntityData
     {
-        public int LineupOrder { get; set; }
+        //public int LineupOrder { get; set; }
+        public string LineupId { get; set; }
+       // public string BatterId { get; set; }
         //Relationships
-        public DtoBatter Batter { get; set; }
-        public DtoLineup Lineup { get; set; }
-        public DtoPosition Position { get; set; }
+       // public DtoPosition Position { get; set; }
         //public PlayerStatusCode PlayerStatusCode { get; set; }
-        public string PlayerStatusCodeId { get; set; } 
+      //  public string PlayerStatusCodeId { get; set; } 
     }
 }

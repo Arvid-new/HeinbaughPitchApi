@@ -18,7 +18,7 @@ namespace HeinbaughPitchApiService.DataObjects
 
         //Relationships
         public string InningId { get; set; }
-        public virtual ICollection<Pitch> Pitches { get; set; }
+        public virtual ICollection<DtoPitch> Pitches { get; set; }
         public virtual ICollection<DtoAction> Actions { get; set; }
         public virtual ICollection<DtoRunner> Runners { get; set; }
         public virtual ICollection<DtoPickoff> Pickoffs { get; set; }

@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
-using Gameday.Data.Utilities;
+using Gameday.Data;
 
-namespace Gameday.Data
+namespace HeinbaughPitchApiService.Models
 {
     public interface IGamedayContext
     {
