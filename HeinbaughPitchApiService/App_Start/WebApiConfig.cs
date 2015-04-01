@@ -47,6 +47,8 @@ namespace HeinbaughPitchApiService
                 m.CreateMap<DtoTeam, Team>();
                 m.CreateMap<DtoDivision, Division>();
                 m.CreateMap<DtoLeague, League>();
+                m.CreateMap<DtoUmpire, Umpire>();
+                m.CreateMap<DtoGame, Game>();
                 
                 //outgoing
                 m.CreateMap<Pitcher, DtoPitcher>()
@@ -93,6 +95,16 @@ namespace HeinbaughPitchApiService
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
                 m.CreateMap<League, DtoLeague>()
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
+                m.CreateMap<Umpire, DtoUmpire>()
+                    .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
+                m.CreateMap<Game, DtoGame>()
+                    .ForMember(d => d.HomeTeamId, map => map.MapFrom(x => x.HomeTeamId.HasValue ? x.HomeTeamId.ToString() : string.Empty))
+                    .ForMember(d => d.AwayTeamId, map => map.MapFrom(x => x.AwayTeamId.HasValue ? x.AwayTeamId.ToString() : string.Empty))
+                    .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
+                m.CreateMap<GameType, DtoGameType>()
+                    .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
+
+                    
 
             });
             //Database.SetInitializer(new HeinbaughPitchApiInitializer());
