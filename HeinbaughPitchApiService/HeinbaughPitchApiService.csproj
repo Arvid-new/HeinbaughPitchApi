@@ -231,6 +231,7 @@
     <Compile Include="DataObjects\DtoPitcher.cs" />
     <Compile Include="DataObjects\DtoPitcherSeason.cs" />
     <Compile Include="DataObjects\DtoPitchType.cs" />
+    <Compile Include="DataObjects\DtoPosition.cs" />
     <Compile Include="DataObjects\TodoItem.cs" />
     <Compile Include="Models\BatterDomainModel.cs" />
     <Compile Include="Models\GamedayContext.cs" />

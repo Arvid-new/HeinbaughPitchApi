@@ -7,6 +7,10 @@ namespace HeinbaughPitchApiService.DataObjects
 {
     public class DtoBatter : EntityData
     {
+        public DtoBatter()
+        {
+            PositionsPlayed = new List<DtoPosition>();
+        }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int? JerseyNumber { get; set; }
@@ -34,6 +38,6 @@ namespace HeinbaughPitchApiService.DataObjects
         //public virtual ICollection<BatterSeason> BatterSeasons { get; set; }
         //public virtual ICollection<Hit> Hits { get; set; }
         //public virtual ICollection<Action> Actions { get; set; }
-        //public virtual ICollection<Position> PositionsPlayed { get; set; } 
+        public virtual ICollection<DtoPosition> PositionsPlayed { get; set; } 
     }
 }
