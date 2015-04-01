@@ -41,6 +41,8 @@ namespace HeinbaughPitchApiService.Models
         }
 
         public System.Data.Entity.DbSet<HeinbaughPitchApiService.DataObjects.DtoPitcher> DtoPitchers { get; set; }
+
+        public System.Data.Entity.DbSet<HeinbaughPitchApiService.DataObjects.DtoBatter> DtoBatters { get; set; }
     }
 
 }

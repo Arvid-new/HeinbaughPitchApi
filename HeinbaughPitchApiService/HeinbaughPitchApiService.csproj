@@ -224,12 +224,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BatterController.cs" />
     <Compile Include="Controllers\PitcherController.cs" />
     <Compile Include="Controllers\TodoItemController.cs" />
+    <Compile Include="DataObjects\DtoBatter.cs" />
     <Compile Include="DataObjects\DtoPitcher.cs" />
     <Compile Include="DataObjects\DtoPitcherSeason.cs" />
     <Compile Include="DataObjects\DtoPitchType.cs" />
     <Compile Include="DataObjects\TodoItem.cs" />
+    <Compile Include="Models\BatterDomainModel.cs" />
     <Compile Include="Models\GamedayContext.cs" />
     <Compile Include="Models\HeinbaughPitchApiContext.cs" />
     <Compile Include="Global.asax.cs">

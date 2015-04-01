@@ -31,6 +31,7 @@ namespace HeinbaughPitchApiService
             {
                 //incoming
                 m.CreateMap<DtoPitcher, Pitcher>();
+                m.CreateMap<DtoBatter, Batter>();
                 m.CreateMap<DtoPitchType, PitchType>()
                     .ForMember(d => d.PitchersWhoHavePitch, map => map.MapFrom(x => x.PitcherId));
                 m.CreateMap<DtoPitcherSeason, PitcherSeason>();
@@ -40,6 +41,8 @@ namespace HeinbaughPitchApiService
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()))
                     .ForMember(d => d.PitchTypes, map => map.MapFrom(x => x.PitchesThrown))
                     .ForMember(d => d.SeasonStats, map => map.MapFrom(x => x.PitcherSeasons));
+                m.CreateMap<Batter, DtoBatter>()
+                    .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
                 m.CreateMap<PitchType, DtoPitchType>()
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()))
                     .ForMember(d => d.PitchName, map => map.MapFrom(x => x.Name));
