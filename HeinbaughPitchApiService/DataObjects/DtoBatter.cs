@@ -26,8 +26,8 @@ namespace HeinbaughPitchApiService.DataObjects
         public int? CareerRunsBattedIn { get; set; }
 
         public DateTime? DateofBirth { get; set; }
-        //public ThrowingSide ThrowingSide { get; set; }
-        //public BattingSide BattingSide { get; set; }
+        public ThrowingSide ThrowingSide { get; set; }
+        public BattingSide BattingSide { get; set; }
 
         //Relationships
 
