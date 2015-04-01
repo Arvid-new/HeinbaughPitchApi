@@ -16,7 +16,7 @@ namespace HeinbaughPitchApiService.DataObjects
 
         //Relationships
         public string BatterId { get; set; }
-        //public Inning Inning { get; set; }
-        //public AtBat AtBat { get; set; } 
+        public string InningId { get; set; }
+        public string AtBatId { get; set; } 
     }
 }

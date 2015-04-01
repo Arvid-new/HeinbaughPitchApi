@@ -227,6 +227,7 @@
     <Compile Include="Controllers\BatterController.cs" />
     <Compile Include="Controllers\PitcherController.cs" />
     <Compile Include="DataObjects\DtoAction.cs" />
+    <Compile Include="DataObjects\DtoAtBat.cs" />
     <Compile Include="DataObjects\DtoBatter.cs" />
     <Compile Include="DataObjects\DtoBatterSeason.cs" />
     <Compile Include="DataObjects\DtoDivision.cs" />
@@ -234,14 +235,17 @@
     <Compile Include="DataObjects\DtoGameType.cs" />
     <Compile Include="DataObjects\DtoHit.cs" />
     <Compile Include="DataObjects\DtoHitResult.cs" />
+    <Compile Include="DataObjects\DtoInning.cs" />
     <Compile Include="DataObjects\DtoLeague.cs" />
     <Compile Include="DataObjects\DtoLineup.cs" />
     <Compile Include="DataObjects\DtoLineupBatter.cs" />
     <Compile Include="DataObjects\DtoPickoff.cs" />
+    <Compile Include="DataObjects\DtoPitch.cs" />
     <Compile Include="DataObjects\DtoPitcher.cs" />
     <Compile Include="DataObjects\DtoPitcherSeason.cs" />
     <Compile Include="DataObjects\DtoPitchType.cs" />
     <Compile Include="DataObjects\DtoPosition.cs" />
+    <Compile Include="DataObjects\DtoRunner.cs" />
     <Compile Include="DataObjects\DtoSeason.cs" />
     <Compile Include="DataObjects\DtoTeam.cs" />
     <Compile Include="DataObjects\DtoUmpire.cs" />

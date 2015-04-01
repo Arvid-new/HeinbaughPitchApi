@@ -50,6 +50,10 @@ namespace HeinbaughPitchApiService
                 m.CreateMap<DtoUmpire, Umpire>();
                 m.CreateMap<DtoGame, Game>();
                 m.CreateMap<DtoLineupBatter, LineupBatter>();
+                m.CreateMap<DtoInning, Inning>();
+                m.CreateMap<DtoAtBat, AtBat>();
+                m.CreateMap<DtoRunner, Runner>();
+                m.CreateMap<DtoPitch, Pitch>();
                 
                 //outgoing
                 m.CreateMap<Pitcher, DtoPitcher>()
@@ -71,7 +75,9 @@ namespace HeinbaughPitchApiService
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
                 m.CreateMap<Action, DtoAction>()
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()))
-                    .ForMember(d => d.BatterId, map => map.MapFrom(x => x.BatterId.ToString()));
+                    .ForMember(d => d.BatterId, map => map.MapFrom(x => x.BatterId.ToString()))
+                    .ForMember(d => d.AtBatId, map => map.MapFrom(x => x.AtBat.ToString()))
+                    .ForMember(d => d.InningId, map => map.MapFrom(x => x.Inning.Id.ToString()));
                 m.CreateMap<Hit, DtoHit>()
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()))
                     .ForMember(d => d.BatterId, map => map.MapFrom(x => x.BatterId.HasValue ? x.BatterId.ToString() : string.Empty)) // Use this line for nullable GUIDs
@@ -107,8 +113,24 @@ namespace HeinbaughPitchApiService
                 m.CreateMap<LineupBatter, DtoLineupBatter>()
                     .ForMember(d => d.PlayerStatusCodeId, map => map.MapFrom(x => x.PlayerStatusCodeId.HasValue ? x.PlayerStatusCodeId.ToString() : string.Empty))
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
+                m.CreateMap<Inning, DtoInning>()
+                    .ForMember(d => d.GameId, map => map.MapFrom(x => x.GameId.HasValue ? x.GameId.ToString() : string.Empty))
+                    .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
+                m.CreateMap<AtBat, DtoAtBat>()
+                    .ForMember(d => d.InningId, map => map.MapFrom(x => x.Inning.Id.ToString()))
+                    .ForMember(d => d.BatterId, map => map.MapFrom(x => x.Batter.Id.ToString()))
+                    .ForMember(d => d.PitcherId, map => map.MapFrom(x => x.Pitcher.Id.ToString()))
+                    .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
+                m.CreateMap<Runner, DtoRunner>()
+                    .ForMember(d => d.BatterId, map => map.MapFrom(x => x.Batter.Id.ToString()))
+                    .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
+                m.CreateMap<Pitch, DtoPitch>()
+                    .ForMember(d => d.AtBatId, map => map.MapFrom(x => x.AtBat.Id.ToString()))
+                    .ForMember(d => d.PitchTypeId, map => map.MapFrom(x => x.PitchType.Id.ToString()))
+                    .ForMember(d => d.BatterId, map => map.MapFrom(x => x.Batter.Id.ToString()))
+                    .ForMember(d => d.PitcherId, map => map.MapFrom(x => x.Pitcher.Id.ToString()))
+                    .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
 
-                    
 
             });
             //Database.SetInitializer(new HeinbaughPitchApiInitializer());
