@@ -9,6 +9,7 @@ using Microsoft.Azure.Mobile.Server;
 using Microsoft.Azure.Mobile.Server.AppService.Config;
 using HeinbaughPitchApiService.DataObjects;
 using HeinbaughPitchApiService.Models;
+using Action = Gameday.Data.Action;
 
 namespace HeinbaughPitchApiService
 {
@@ -36,6 +37,7 @@ namespace HeinbaughPitchApiService
                     .ForMember(d => d.PitchersWhoHavePitch, map => map.MapFrom(x => x.PitcherId));
                 m.CreateMap<DtoPitcherSeason, PitcherSeason>();
                 m.CreateMap<DtoPosition, Position>();
+                m.CreateMap<DtoAction, Action>();
                 
                 //outgoing
                 m.CreateMap<Pitcher, DtoPitcher>()
@@ -44,13 +46,16 @@ namespace HeinbaughPitchApiService
                     .ForMember(d => d.SeasonStats, map => map.MapFrom(x => x.PitcherSeasons));
                 m.CreateMap<Batter, DtoBatter>()
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()))
-                    .ForMember(d => d.PositionsPlayed, map => map.MapFrom(x => x.PositionsPlayed));
+                    .ForMember(d => d.PositionsPlayed, map => map.MapFrom(x => x.PositionsPlayed))
+                    .ForMember(d => d.Actions, map => map.MapFrom(x => x.Actions));
                 m.CreateMap<PitchType, DtoPitchType>()
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()))
                     .ForMember(d => d.PitchName, map => map.MapFrom(x => x.Name));
                 m.CreateMap<PitcherSeason, DtoPitcherSeason>()
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
                 m.CreateMap<Position, DtoPosition>()
+                    .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
+                m.CreateMap<Action, DtoAction>()
                     .ForMember(d => d.Id, map => map.MapFrom(x => x.Id.ToString()));
             });
             Database.SetInitializer(new HeinbaughPitchApiInitializer());
