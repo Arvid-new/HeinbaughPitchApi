@@ -36,7 +36,7 @@ namespace HeinbaughPitchApiService.Controllers
             
         }
 
-        [Route("api/pitch/")] 
+        [Route("api/Pitch/")] 
         public IEnumerable Get()
         {
             
@@ -44,6 +44,7 @@ namespace HeinbaughPitchApiService.Controllers
                 .Take(100)
                 .Project().To<DtoPitch>().ToList();
             return res;
+            var a = new int[3, 4, 5];
         }
 
        /// <summary>
@@ -51,12 +52,22 @@ namespace HeinbaughPitchApiService.Controllers
        /// </summary>
        /// <param name="guid">ID of the Pitcher to retrieve</param>
        /// <returns>Collection of all pitches thrown by a pitcher</returns>
+       [Route("api/Pitch/ByPitcher/{guid}")]
         public IQueryable GetByPitcherId(Guid guid)
         {
             var res = _context.Pitches
                 .Where(p => p.PitcherId == guid)
                 .Project().To<DtoPitch>();
             return res;
-        } 
+        }
+
+       [Route("api/Pitch/ByBatter/{guid}")]
+       public IQueryable GetByBatterId(Guid guid)
+       {
+           var res = _context.Pitches
+               .Where(p => p.BatterId == guid)
+               .Project().To<DtoPitch>();
+           return res;
+       } 
     }
 }
