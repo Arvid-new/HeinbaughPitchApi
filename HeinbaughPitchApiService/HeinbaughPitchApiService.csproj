@@ -115,6 +115,7 @@
     <Reference Include="NLog">
       <HintPath>..\packages\NLog.3.2.0.0\lib\net45\NLog.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Net" />
     <Reference Include="System.Web.Http">
       <SpecificVersion>False</SpecificVersion>

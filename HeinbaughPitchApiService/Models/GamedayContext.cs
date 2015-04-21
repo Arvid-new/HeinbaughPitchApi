@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using Autofac.Core;
 using Gameday.Data;
 
 namespace HeinbaughPitchApiService.Models
@@ -42,6 +43,7 @@ namespace HeinbaughPitchApiService.Models
         public GamedayContext()
             : base(connectionStringName)
         {
+            
             Database.SetInitializer<GamedayContext>(null);
             //Database.SetInitializer(new GamedayInitializer());
             Database.Initialize(true);

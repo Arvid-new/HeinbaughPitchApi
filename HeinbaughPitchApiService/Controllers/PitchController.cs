@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Data.Linq;
 using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Controllers;
+using System.Web.Http.OData;
 using AutoMapper.QueryableExtensions;
+using Gameday.Data;
 using HeinbaughPitchApiService.DataObjects;
 using HeinbaughPitchApiService.Models;
 using Microsoft.Azure.Mobile.Server;
+using CompiledQuery = System.Data.Entity.Core.Objects.CompiledQuery;
+using GamedayContext = HeinbaughPitchApiService.Models.GamedayContext;
 
 namespace HeinbaughPitchApiService.Controllers
 {
@@ -33,13 +39,13 @@ namespace HeinbaughPitchApiService.Controllers
         public PitchApiController()
         {
             _context = new GamedayContext();
-            
+
         }
 
-        [Route("api/Pitch/")] 
+        [Route("api/Pitch/")]
         public IEnumerable Get()
         {
-            
+
             var res = _context.Pitches
                 .Take(100)
                 .Project().To<DtoPitch>().ToList();
@@ -47,12 +53,13 @@ namespace HeinbaughPitchApiService.Controllers
             var a = new int[3, 4, 5];
         }
 
-       /// <summary>
-       /// Returns all pitches thrown by an individual pitcher
-       /// </summary>
-       /// <param name="guid">ID of the Pitcher to retrieve</param>
-       /// <returns>Collection of all pitches thrown by a pitcher</returns>
-       [Route("api/Pitch/ByPitcher/{guid}")]
+        /// <summary>
+        /// Returns all pitches thrown by an individual pitcher
+        /// </summary>
+        /// <param name="guid">ID of the Pitcher to retrieve</param>
+        /// <returns>Collection of all pitches thrown by a pitcher</returns>
+
+        [Route("api/Pitch/ByPitcher/{guid}")]
         public IQueryable GetByPitcherId(Guid guid)
         {
             var res = _context.Pitches
@@ -61,13 +68,19 @@ namespace HeinbaughPitchApiService.Controllers
             return res;
         }
 
-       [Route("api/Pitch/ByBatter/{guid}")]
-       public IQueryable GetByBatterId(Guid guid)
-       {
-           var res = _context.Pitches
-               .Where(p => p.BatterId == guid)
-               .Project().To<DtoPitch>();
-           return res;
-       } 
+        [EnableQuery(PageSize = 100)]
+        [Route("api/Pitch/ByBatter/{guid}")]
+        public IEnumerable GetByBatterId(Guid guid)
+        {
+            var sqlQuery = "Select * From Pitches Where BatterId = {0}";
+            var results = _context.Pitches.SqlQuery(sqlQuery, guid);
+            var list = new List<Pitch>();
+            return list;
+            //var res = _context.Pitches
+            //    .Take(100)
+            //    .Where(p => p.BatterId == guid);
+            //// .Project().To<DtoPitch>();
+            //return res;
+        }
     }
 }

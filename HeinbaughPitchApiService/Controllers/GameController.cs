@@ -19,6 +19,7 @@ namespace HeinbaughPitchApiService.Controllers
             base.Initialize(controllerContext);
             var context = new GamedayContext();
             DomainManager = new GameDomainModel(context, Request, Services);
+            
         }
 
         // GET tables/Game
